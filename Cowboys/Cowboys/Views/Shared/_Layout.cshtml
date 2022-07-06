@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - test</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" /> <!-- Overrides the previous css style sheets -->
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/popper.js/popper.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand text-primary" asp-area="" asp-controller="Home" asp-action="Index">Dallas Cowboys</a>
+
+                <!-- Links that display when the toggle is pressed -->
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="p-2">
+                        <ul class="list-unstyled">
+                            <li><a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li><a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="BuySeats">Buy Seats</a></li>
+                        </>
+                    </div>
+                </div>
+
+                <!-- Toggle (three lined) dropdown on a small screen-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <!-- Keep three lined dropdown from overlapping these links -->
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="BuySeats">Buy Seats</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navigation Bar-->
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <!-- Copyright -->
+        <div class="container border border-4 text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2021 Copyright: Trevor Lastelick Studios
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿@model SeatPrices
+@{
+    ViewBag.Title = "Estimate Price of Seats Generator";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Estimate Price of Seats Generator</title>
+    <style>
+        /* all of the CSS styles from figure 2-14 go here */
+    </style>
+</head>
+
+    
+
+<body>
+
+    <!-- Center an image on the web-page -->
+    <div class="text-center">
+        <img src="~/images/stadium.jfif" class="mx-auto d-block" alt="...">
+    </div>
+    <!-- End -->
+
+    <br />
+    <br />
+
+    <!-- Dismissable alert -->
+    <div class="alert alert-primary" role="alert">
+        <strong>Use the seat section numbers in the image above to find the price of seating below!</strong>
+    </div>
+    <!-- END -->
+
+    <br />
+
+
+    <form asp-action="BuySeats" method="post">
+
+        <!-- A label to identify what information should go into the input box below -->
+        <div class="row form-group">
+            <label asp-for="Seat"
+                   class="col-sm-3">
+               Section Number:
+            </label>
+            <!-- END -->
+            <!-- The input of this box will = the Seat variable inside the Model SeatPrices.cs -->
+            <div class="col-sm-3">
+                <input asp-for="Seat"
+                       class="form-control" />
+            </div>
+            <!-- END -->
+            <!-- Red error output when values not in range-->
+            <span asp-validation-for="Seat"
+                  class="col text-danger"></span>
+            <!-- END -->
+        </div>
+
+        <div class="row form-group">
+            <label class="col-sm-3">Seat Price:</label>
+
+            <!-- Display the return value of the function CalculateSeatPrice() in the SeatPrices model -->
+            <div class="col-sm-3">
+                <input value="@ViewBag.FV.ToString("C0")" readonly
+                       class="form-control col-sm-3" />
+            </div>
+            <!-- END -->
+        </div>
+
+        <br />
+        
+
+        <button class="btn btn-primary" type="submit">Calculate</button>
+        <a asp-action="BuySeats" button class="btn btn-secondary" >Clear</a>
+    </form>
+</body>
+</html>
